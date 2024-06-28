@@ -1,6 +1,9 @@
 package org.koreait;
 
 import java.util.*;
+// import java.util.ArrayList;
+// import java.util.List;
+// import java.util.Scanner;
 
 public class App {
 
@@ -47,7 +50,7 @@ public class App {
 
     public void showAllMotivation() {
         System.out.println("== motivation list ==");
-        System.out.println("id \t// motivation\t// source");
+        System.out.println("     id //     source // body");
         System.out.println("=".repeat(40));
 
         if (articles.isEmpty()) {
@@ -55,7 +58,8 @@ public class App {
         } else {
             for (int i = articles.size() - 1; i >= 0; i--) {
                 Article article = articles.get(i);
-                System.out.printf(" %d \t// %s\t// %s\n", article.getId(), article.getBody(), article.getSource());
+                article.showArticle();
+                // System.out.printf(" %5d \t// %10s\t// %10s\n", this.getId(), this.getSource(), this.getBody());
             }
         }
     }

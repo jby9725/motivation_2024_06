@@ -35,4 +35,12 @@ public class Article {
         return this.source;
     }
 
+    public void showArticle() {
+
+        if (this.getSource().length() > 7) { // source의 길이가 너무 길 때 축약.
+            System.out.printf(" %5d \t// %10s // %3s\n", this.getId(), this.getSource().substring(0, 5) + "...", this.getBody());
+        } else {
+            System.out.printf(" %5d \t// %10s // %3s\n", this.getId(), this.getSource(), this.getBody());
+        }
+    }
 }
