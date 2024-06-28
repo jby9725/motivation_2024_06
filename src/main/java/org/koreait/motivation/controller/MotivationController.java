@@ -4,18 +4,20 @@ import org.koreait.Container;
 import org.koreait.motivation.entity.Article;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 // Motivation 관련 기능을 구현한 클래스
 public class MotivationController {
 
     private List<Article> articles;
-    // private Map<Integer, Article> articles = new HashMap<Integer, Article>(); // 맵 이용하려면 바꿀게 너무 많다..
+    //private Map<Integer, Article> articles; // 맵 이용하려면 바꿀게 너무 많다..
     public static int lastID;
 
     public MotivationController() {
         lastID = 0;
-        articles = new ArrayList<>();
+        articles = new ArrayList<>(); // = new HashMap<Integer, Article>();//
     }
 
     public void add() {
@@ -24,7 +26,8 @@ public class MotivationController {
         System.out.print("source : ");
         String source = Container.getScanner().nextLine();
 
-        articles.add(new Article(++lastID, body, source));
+        ++lastID;
+        articles.add(new Article(lastID, body, source));
         System.out.printf("%d번 motivation이 등록되었습니다.\n", lastID);
 
     }
@@ -44,5 +47,25 @@ public class MotivationController {
                 // System.out.printf(" %5d \t// %10s // %3s\n", this.getId(), this.getSource(), this.getBody());
             }
         }
+    }
+
+    public void delete(int id) { // id값을 가져온다는 것을 유의할 것.
+        boolean isFound = false;
+
+        for(int i = 0; i < articles.size(); i++) {
+            if (articles.get(i).getId() == id) {
+                isFound = true;
+                articles.remove(i);
+                break;
+            }
+        }
+
+        if(!isFound) {
+            System.out.printf("%d번 motivation은 없습니다.\n", id);
+            return;
+        }
+
+        System.out.printf("%d번 motivation이 삭제되었습니다.\n", id);
+
     }
 }

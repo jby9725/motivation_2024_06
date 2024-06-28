@@ -30,6 +30,12 @@ public class App {
 
             if (cmd.equals("add")) {
                 motivationController.add();
+            } else if (cmd.startsWith("delete?id=")) {
+                // parsing
+                String id_str = cmd.substring(cmd.indexOf("delete?id=") + 10);
+//                System.out.println(cmd.substring(cmd.indexOf("delete?")+7)); // id=@@
+                motivationController.delete(Integer.parseInt(id_str)); // @@
+
             } else if (cmd.equals("list")) {
                 motivationController.list();
             } else {
