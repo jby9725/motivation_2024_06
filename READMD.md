@@ -29,3 +29,6 @@
    - SystemController.java : System 관련 기능이 구현된 클래스 (현재 exit만)
    - MotivationController.java : Motivation 관련 기능이 구현된 클래스 (현재 add, list만)
 8. 각기 다른 클래스에서도 접근할 수 있는 Container class 생성
+   - 현재까지의 기능을 구현했을 때, 이전까지는 메인에서 생성한 스캐너를 App class, MotivationController class에서 잇따라 전달받아 사용하고 있다.
+   - 이 구조를 개선하여 따로 어느 클래스든 접근할 수 있는 전역 공간을 만들고(class Container) 잇따라 전달받는 것을 삭제하고 바로 전역 공간에서 접근할 수 있도록 변경하였다.
+   
