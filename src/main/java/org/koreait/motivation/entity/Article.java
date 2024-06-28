@@ -1,4 +1,4 @@
-package org.koreait;
+package org.koreait.motivation.entity;
 
 public class Article {
     private int id;

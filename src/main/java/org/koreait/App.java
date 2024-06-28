@@ -1,5 +1,7 @@
 package org.koreait;
 
+import org.koreait.motivation.entity.Article;
+
 import java.util.*;
 // import java.util.ArrayList;
 // import java.util.List;
@@ -39,16 +41,16 @@ public class App {
                 String source = sc.nextLine();
 
                 articles.add(new Article(++lastID, body, source));
-
                 System.out.printf("%d번 motivation이 등록되었습니다.\n", lastID);
+
             } else if (cmd.equals("list")) {
-                showAllMotivation();
+                showAllMotivations();
             }
         }
 
     }
 
-    public void showAllMotivation() {
+    public void showAllMotivations() {
         System.out.println("== motivation list ==");
         System.out.println("     id //     source // body");
         System.out.println("=".repeat(40));
@@ -59,7 +61,7 @@ public class App {
             for (int i = articles.size() - 1; i >= 0; i--) {
                 Article article = articles.get(i);
                 article.showArticle();
-                // System.out.printf(" %5d \t// %10s\t// %10s\n", this.getId(), this.getSource(), this.getBody());
+                // System.out.printf(" %5d \t// %10s // %3s\n", this.getId(), this.getSource(), this.getBody());
             }
         }
     }
