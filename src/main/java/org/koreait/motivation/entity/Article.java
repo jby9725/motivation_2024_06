@@ -1,5 +1,6 @@
 package org.koreait.motivation.entity;
 
+// 모티베이션 하나
 public class Article {
     private int id;
     private String body;
