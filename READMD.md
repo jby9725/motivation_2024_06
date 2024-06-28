@@ -28,3 +28,4 @@
    - Article.java : Motivation class. 하나하나가 가질 속성과 그에 따라 필요한 기능을 구현한 메소드가 있다.
    - SystemController.java : System 관련 기능이 구현된 클래스 (현재 exit만)
    - MotivationController.java : Motivation 관련 기능이 구현된 클래스 (현재 add, list만)
+8. 각기 다른 클래스에서도 접근할 수 있는 Container class 생성

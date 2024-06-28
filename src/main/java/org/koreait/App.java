@@ -1,32 +1,24 @@
 package org.koreait;
 
 import org.koreait.motivation.controller.MotivationController;
-import org.koreait.motivation.entity.Article;
 import org.koreait.system.controller.SystemController;
-
-import java.util.*;
-// import java.util.ArrayList;
-// import java.util.List;
-// import java.util.Scanner;
 
 public class App {
     // 리팩토링 이후 : 컨트롤러들에게 기능을 실행하라고 전달 (길안내)
 
-    private Scanner sc;
+    public App() {
 
-    public App(Scanner sc) {
-        this.sc = sc;
     }
 
     public void run() {
         System.out.println("== motivation execution ==");
 
         SystemController systemController = new SystemController();
-        MotivationController motivationController = new MotivationController(sc);
+        MotivationController motivationController = new MotivationController();
 
         while (true) {
             System.out.print("command) ");
-            String cmd = sc.nextLine().trim(); // 섬세
+            String cmd = Container.getScanner().nextLine().trim(); // 섬세
 
             if (cmd.equals("exit")) {
                 systemController.exit();

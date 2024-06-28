@@ -1,10 +1,10 @@
 package org.koreait.motivation.controller;
 
+import org.koreait.Container;
 import org.koreait.motivation.entity.Article;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 // Motivation 관련 기능을 구현한 클래스
 public class MotivationController {
@@ -12,19 +12,17 @@ public class MotivationController {
     private List<Article> articles;
     // private Map<Integer, Article> articles = new HashMap<Integer, Article>(); // 맵 이용하려면 바꿀게 너무 많다..
     public static int lastID;
-    Scanner sc;
 
-    public MotivationController(Scanner sc) {
-        this.sc = sc;
+    public MotivationController() {
         lastID = 0;
         articles = new ArrayList<>();
     }
 
     public void add() {
         System.out.print("body : ");
-        String body = sc.nextLine();
+        String body = Container.getScanner().nextLine();
         System.out.print("source : ");
-        String source = sc.nextLine();
+        String source = Container.getScanner().nextLine();
 
         articles.add(new Article(++lastID, body, source));
         System.out.printf("%d번 motivation이 등록되었습니다.\n", lastID);
