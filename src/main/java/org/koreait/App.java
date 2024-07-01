@@ -28,6 +28,10 @@ public class App {
                 continue;
             }
 
+            if(rp.getErrMsg().equals("오타 있음(id)")) {
+                continue;
+            }
+
             switch (rp.getActionMethod()) {
                 case "exit":
                     systemController.exit();
@@ -40,11 +44,14 @@ public class App {
                     motivationController.list();
                     break;
                 case "delete":
-                    System.out.println(rp.getActionMethod());
-                    System.out.println(rp.getParams("id"));
-                    System.out.println(rp.getParams("source"));
-                    System.out.println(rp.getParams("motivation"));
-//                    motivationController.delete();
+                    motivationController.delete(rp); // Integer.parseInt(rp.getParams("id"))
+//                    System.out.println(rp.getActionMethod()); // delete
+//                    System.out.println(rp.getParams("id")); // 1
+//                    System.out.println(rp.getParams("source")); // null
+//                    System.out.println(rp.getParams("motivation")); // null
+                    break;
+                case "edit":
+                    motivationController.edit(rp);
                     break;
                 default:
                     System.out.println("사용할 수 없는 명령어입니다.");

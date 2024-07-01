@@ -12,6 +12,15 @@ public class Article {
         this.source = source;
     }
 
+    @Override
+    public String toString() {
+        return "Article{" +
+                "id=" + id +
+                ", body='" + body + '\'' +
+                ", source='" + source + '\'' +
+                '}';
+    }
+
     public void setId(int id) {
         this.id = id;
     }
