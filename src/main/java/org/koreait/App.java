@@ -30,11 +30,15 @@ public class App {
 
             if (cmd.equals("add")) {
                 motivationController.add();
-            } else if (cmd.startsWith("delete?id=")) {
-                // parsing
-                String id_str = cmd.substring(cmd.indexOf("delete?id=") + 10);
-//                System.out.println(cmd.substring(cmd.indexOf("delete?")+7)); // id=@@
-                motivationController.delete(Integer.parseInt(id_str)); // @@
+            } else if (cmd.startsWith("delete")) {
+
+                // passing class
+                RequestProcesser rp = new RequestProcesser(cmd);
+
+                System.out.println(rp.getActionMethod());
+                System.out.println(rp.getParams("id"));
+                System.out.println(rp.getParams("source"));
+                System.out.println(rp.getParams("motivation"));
 
             } else if (cmd.equals("list")) {
                 motivationController.list();
