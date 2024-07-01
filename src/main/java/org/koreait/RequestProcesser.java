@@ -18,18 +18,22 @@ public class RequestProcesser {
 
         String[] paramBits;
 
-        try {
-            paramBits = cmdBits[1].split("&");
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("명령어가 제대로 입력되지 않았습니다. 확인해주세요.");
+        if (cmdBits.length == 1) {
             return;
         }
 
-        for (String paramStr : paramBits) {
-            String[] paramStrBits = paramStr.split("=", 2);
-            String key = paramStrBits[0];
-            String value = paramStrBits[1];
-            params.put(key, value);
+        try {
+            paramBits = cmdBits[1].split("&");
+
+            for (String paramStr : paramBits) {
+                String[] paramStrBits = paramStr.split("=", 2);
+                String key = paramStrBits[0];
+                String value = paramStrBits[1];
+                params.put(key, value);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("명령어가 제대로 입력되지 않았습니다. 확인해주세요.");
+            return;
         }
     }
 
